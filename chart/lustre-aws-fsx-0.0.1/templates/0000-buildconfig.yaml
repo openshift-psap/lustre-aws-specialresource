@@ -30,18 +30,15 @@ spec:
   strategy:
     dockerStrategy:
       dockerfilePath: Dockerfile.SRO
-      from:
-        kind: "ImageStreamTag"
-        name: "driver-container-base:v{{.Values.kernelFullVersion}}"
-        namespace: "driver-container-base"
       buildArgs:
+        - name: "IMAGE"
+          value: {{ .Values.driverToolkitImage  }}
         {{- range $arg := .Values.buildArgs }}
-        - name: {{ $arg.Name}}
-          value: {{ $arg.Value | quote }}
-        {{- end}}
+        - name: {{ $arg.name }}
+          value: {{ $arg.value }}
+        {{- end }}
         - name: KVER
           value: {{ .Values.kernelFullVersion }}
-
   output:
     to:
       kind: ImageStreamTag

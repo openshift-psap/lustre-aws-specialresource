@@ -6,7 +6,10 @@ spec:
   chart:
     name: lustre-aws-fsx
     version: 0.0.1
-    repository: file:///charts/lustre
+    repository:
+      name: lustre-aws-specialresource
+      url: https://openshift-psap.github.io/lustre-aws-specialresource/
+      insecure_skip_tls_verify: true
   namespace: lustre-aws-fsx
   set:
     aws_key_id: "AWS_ACCESS_KEY_ID"

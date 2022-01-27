@@ -28,8 +28,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{.Values.specialresource.metadata.name}}-{{.Values.groupName.driverContainer}}-{{.Values.operatingSystemMajor}}
-userNames:
-- system:serviceaccount:{{.Values.specialresource.spec.namespace}}:{{.Values.specialresource.metadata.name}}-{{.Values.groupName.driverContainer}}
+  namespace: {{.Values.specialresource.spec.namespace}}
 ---
 # Please edit the object below. Lines beginning with a '#' will be ignored,
 # and an empty file will abort the edit. If an error occurs while saving this file will be

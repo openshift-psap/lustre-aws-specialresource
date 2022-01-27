@@ -107,6 +107,7 @@ spec:
       serviceAccount: {{.Values.specialresource.metadata.name}}-{{.Values.groupName.driverContainer}}-{{.Values.operatingSystemMajor}}
       serviceAccountName: {{.Values.specialresource.metadata.name}}-{{.Values.groupName.driverContainer}}-{{.Values.operatingSystemMajor}}
 #      hostPID: true
+      hostNetwork: true
       containers:
       - image: image-registry.openshift-image-registry.svc:5000/{{.Values.specialresource.spec.namespace}}/{{.Values.specialresource.metadata.name}}-{{.Values.groupName.driverContainer}}:v{{.Values.kernelFullVersion}}
         imagePullPolicy: Always
@@ -118,7 +119,6 @@ spec:
               command: ["/bin/sh", "-c", "systemctl stop kmods-via-containers@lustre-client"]
         securityContext:
           privileged: true
-          hostNetwork: true
           seLinuxOptions:
             level: "s0"
         volumeMounts:

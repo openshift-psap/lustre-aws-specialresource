@@ -1,11 +1,9 @@
 
 helm-lint: helm
-	cd chart; \
-	helm lint -f global-values.yaml lustre-aws-fsx-0.0.1/
+	helm lint -f global-values.yaml lustre-aws-fsx/
 
 chart: helm-lint
-	cd chart; \
-	helm package lustre-aws-fsx-0.0.1/; \
+	helm package lustre-aws-fsx/
 	helm repo index .
 
 

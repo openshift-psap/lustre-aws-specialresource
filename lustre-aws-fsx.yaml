@@ -23,5 +23,5 @@ spec:
     source:
       git:
         ref: "master"
-        uri: "https://github.com/openshift-psap/kvc-lustre-client.git"
+        uri: "https://github.com/openshift-psap/lustre-aws-specialresource.git"
 

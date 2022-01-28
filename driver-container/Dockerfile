@@ -1,4 +1,4 @@
-ARG IMAGE=registry.access.redhat.com/ubi8/ubi
+ARG IMAGE=image-registry.openshift-image-registry.svc:5000/openshift/driver-toolkit:latest
 FROM $IMAGE
 
 WORKDIR /build/

@@ -16,13 +16,12 @@ ARG KVER
 # fail
 
 # Install kernel module
-ARG RELEASEVER
-RUN yum -y install --releasever=${RELEASEVER} wget git make sudo --setopt=install_weak_deps=False --best
+RUN yum -y install wget git make sudo --setopt=install_weak_deps=False --best
       
 RUN wget https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-rpm-public-key.asc -O /tmp/fsx-rpm-public-key.asc \
           && rpm --import /tmp/fsx-rpm-public-key.asc \
           && wget https://fsx-lustre-client-repo.s3.amazonaws.com/el/8/fsx-lustre-client.repo -O /etc/yum.repos.d/aws-fsx.repo
-RUN yum -y install --releasever=${RELEASEVER} kmod-lustre-client lustre-client --setopt=install_weak_deps=False --best
+RUN yum -y install kmod-lustre-client lustre-client --setopt=install_weak_deps=False --best
 
 # Add the helper tools
 WORKDIR /root/kvc-lustre-client

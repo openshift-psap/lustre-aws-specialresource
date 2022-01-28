@@ -22,6 +22,6 @@ spec:
   driverContainer:
     source:
       git:
-        ref: "master"
+        ref: "main"
         uri: "https://github.com/openshift-psap/lustre-aws-specialresource.git"
 

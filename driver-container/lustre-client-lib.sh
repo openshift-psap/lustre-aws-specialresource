@@ -130,7 +130,7 @@ load_kmods() {
         echo "Kernel module ${module} already loaded"
     else
         KO_FILES=$(find /lib/modules/*/extra/lustre-client -type f -name "*.ko")
-        weak_modules_add
+        echo "$KO_FILES" | weak-modules --add-modules --verbose --no-initramfs
         modprobe -v lnet
         modprobe -v ksocklnd
         modprobe -v mgc

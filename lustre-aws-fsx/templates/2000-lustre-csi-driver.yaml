@@ -217,13 +217,13 @@ spec:
           valueFrom:
             secretKeyRef:
               key: aws_key_id
-              name: aws-secret
+              name: aws-creds
               optional: true
         - name: AWS_SECRET_ACCESS_KEY
           valueFrom:
             secretKeyRef:
               key: aws_access_key
-              name: aws-secret
+              name: aws-creds
               optional: true
         image: amazon/aws-fsx-csi-driver:v0.3.0
         name: fsx-plugin

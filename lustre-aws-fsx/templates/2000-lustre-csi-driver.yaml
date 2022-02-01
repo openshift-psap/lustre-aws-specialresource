@@ -29,8 +29,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{.Values.specialresource.metadata.name}}-{{.Values.groupName.csiDriver}}-node
-userNames:
-- system:serviceaccount:{{.Values.specialresource.spec.namespace}}:{{.Values.specialresource.metadata.name}}-{{.Values.groupName.csiDriver}}-node
+  namespace: {{.Values.specialresource.spec.namespace}}
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -63,8 +62,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{.Values.specialresource.metadata.name}}-{{.Values.groupName.csiDriver}}-controller
-userNames:
-- system:serviceaccount:{{.Values.specialresource.spec.namespace}}:{{.Values.specialresource.metadata.name}}-{{.Values.groupName.csiDriver}}-controller
+  namespace: {{.Values.specialresource.spec.namespace}}
 ---
 allowHostDirVolumePlugin: true
 allowHostIPC: false

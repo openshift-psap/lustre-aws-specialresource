@@ -192,7 +192,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fsx-csi-controller
-  namespace: kube-system
+  namespace: {{.Values.specialresource.spec.namespace}}
 spec:
   replicas: 2
   selector:
@@ -259,7 +259,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: fsx-csi-node
-  namespace: kube-system
+  namespace: {{.Values.specialresource.spec.namespace}}
 spec:
   selector:
     matchLabels:

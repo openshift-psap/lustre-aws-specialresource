@@ -8,10 +8,13 @@ spec:
     version: 0.0.1
     repository:
       name: lustre-aws-specialresource
-      url: https://openshift-psap.github.io/lustre-aws-specialresource/
-      insecure_skip_tls_verify: true
+      url: cm://lustre-aws-fsx/lustre-aws-fsx-chart #https://openshift-psap.github.io/lustre-aws-specialresource/
+      #insecure_skip_tls_verify: true
+  debug: true
   namespace: lustre-aws-fsx
   set:
+    aws_key_id: "AWS_ACCESS_KEY_ID"
+    aws_access_key: "AWS_SECRET_ACCESS_KEY"
     buildArgs:
     - name: "KMODVER"
       value: "SRO"

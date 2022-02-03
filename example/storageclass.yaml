@@ -1,0 +1,13 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: fsx-sc
+provisioner: fsx.csi.aws.com
+parameters:
+  subnetId: subnet-07c5259d4fa605ac5
+  securityGroupIds: sg-09db777bef83b26d3
+  s3ImportPath: s3://dagray-gromacs-data
+  s3ExportPath: s3://dagray-gromacs-data/export
+  deploymentType: SCRATCH_2
+mountOptions:
+  - flock

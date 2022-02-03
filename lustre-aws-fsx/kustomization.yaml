@@ -8,7 +8,8 @@ configMapGenerator:
 - files:
   - 0000-buildconfig.yaml
   - 1000-driver-container.yaml
-  - 1100-lustre-csi-secret.yaml
-  - 2000-lustre-csi-driver.yaml
+  - 2000-secret.yaml
+  - 3000-csi-controller.yaml
+  - 3000-csi-node.yaml
   name: lustre-client
 namespace: lustre-client
